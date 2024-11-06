@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+    <title>Tamagotchi</title>
+</head>
+<body>
+
+    <div id="tamagotchi">
+        <div class="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
+    
+        <div class="status">Status</div>
+    
+        <div id="eat" class="progress-bar">Eat: 100%</div>
+        <div id="sleep" class="progress-bar">Sleep: 100%</div>
+        <div id="boost" class="progress-bar">Boost: 100%</div>
+        <div id="shower" class="progress-bar">Shower: 100%</div>
+    
+        <div id="update-stats"> 
+            <button onclick="eatFn()">Eat</button>
+            <button onclick="sleepFn()">Sleep</button>
+            <button onclick="boostFn()">Boost</button>
+            <button onclick="showerFn()">Shower</button>
+        </div>
+    
+        <h3><div id="message"></div></h3>
+    
+    </div>
+    
+
+
+</body>
+</html>
