@@ -10,29 +10,27 @@
 </head>
 <body>
 
-    <div id="tamagotchi">
-        <div class="canvas-container">
-            <canvas id="canvas"></canvas>
-        </div>
+    <canvas id="canvas"></canvas>
     
-        <div class="status">Status</div>
-    
-        <div id="eat" class="progress-bar">Eat: 100%</div>
-        <div id="sleep" class="progress-bar">Sleep: 100%</div>
-        <div id="boost" class="progress-bar">Boost: 100%</div>
-        <div id="shower" class="progress-bar">Shower: 100%</div>
-    
-        <div id="update-stats"> 
-            <button onclick="eatFn()">Eat</button>
-            <button onclick="sleepFn()">Sleep</button>
-            <button onclick="boostFn()">Boost</button>
-            <button onclick="showerFn()">Shower</button>
-        </div>
-    
-        <h3><div id="message"></div></h3>
-    
+    <!-- Controls -->
+    <div id="controls">
+        <button onclick="startGame()">Start Game</button>
+        <button onclick="stopGame()">Stop Game</button>
     </div>
-    
+
+    <!-- Action Buttons -->
+    <div id="action-buttons">
+        <button onclick="eatFn()">Eat</button>
+        <button onclick="sleepFn()">Sleep</button>
+        <button onclick="showerFn()">Shower</button>
+        <button onclick="boostFn()">Boost</button>
+    </div>
+
+    <!-- Progress Bars -->
+    <div class="progress" id="eat">Eat: 100%</div>
+    <div class="progress" id="sleep">Sleep: 100%</div>
+    <div class="progress" id="boost">Boost: 100%</div>
+    <div class="progress" id="shower">Shower: 100%</div>
 
 
 </body>
