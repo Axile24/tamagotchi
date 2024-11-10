@@ -1,5 +1,4 @@
-
-let tickSound = new Audio('tick.mp3');  //Lägga ljud? som warning! funkar ej
+let tickSound = new Audio('tick.mp3');  // Add sound for ticking (warning)
 
 let eat = parseFloat(localStorage.getItem('eat')) || 100;
 let sleep = parseFloat(localStorage.getItem('sleep')) || 100;
@@ -12,16 +11,14 @@ let boostRate = 0.2;
 let showerRate = 1.5;
 
 let gameInterval = 0;
+let alertShown = { eat: false, sleep: false, boost: false, shower: false };  // Track which progress bars have triggered an alert
 
-let ctx ;
+let ctx;
 
-// create canvas med dom.
-
-
-
+// Create canvas with DOM
 function createCanvas() {
     let canvas = document.getElementById('canvas');
-    ctx= canvas.getContext('2d');
+    ctx = canvas.getContext('2d');
     canvas.width = 200;
     canvas.height = 200;
     canvas.style.border = 'solid';
@@ -61,7 +58,7 @@ function Loop() {
     shower = Math.max(shower - showerRate, 0);
 
     // Play the ticking sound on each loop
-    tickSound.play();
+  
 
     // Update progress bar text and width
     document.getElementById('eat').innerHTML = `Eat: ${eat.toFixed(1)}%`;
@@ -96,6 +93,9 @@ function stopGame() {
     if (gameInterval) {  // Stop the game if it's running
         clearInterval(gameInterval);
         gameInterval = null;
+        tickSound.pause;
+        tickSound.currentTime = 100; // Reset the audio to the beginning
+
     }
 }
 
@@ -123,17 +123,24 @@ function boostFn() {
     document.getElementById('boost').style.width = boost + '%';
 }
 
+// Progress bar changes color and alerts when below 10%
 function changeProgressBarColor(id, value) {
     let progressBar = document.getElementById(id);
+
     if (value >= 80) {
         progressBar.style.backgroundColor = 'green';
     } else if (value >= 50) {
         progressBar.style.backgroundColor = 'yellow';
     } else if (value >= 10) {
         progressBar.style.backgroundColor = 'orange';
+
     } else {
         progressBar.style.backgroundColor = 'red';
-        alert(id + ' is under 10%');
+        if (!alertShown[id]) {
+            alert(id + ' is under 10%!');
+            tickSound.play();//spela ljudet
+            alertShown[id] = true;  // Prevent multiple alerts for the same progress bar
+        }
     }
 }
 
