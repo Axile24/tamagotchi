@@ -5,6 +5,9 @@ let sleep = parseFloat(localStorage.getItem('sleep')) || 100;
 let boost = parseFloat(localStorage.getItem('boost')) || 100;
 let shower = parseFloat(localStorage.getItem('shower')) || 100;
 
+console.log(shower, eat, boost, sleep);
+
+
 let eatRate = 0.5;
 let sleepRate = 1;
 let boostRate = 0.2;
@@ -30,6 +33,8 @@ function Loop() {
     createCanvas();
 
     let total = eat + sleep + boost + shower;
+    console.log(total);
+    
 
     // Set background color based on total attribute values
     if (eat <= 0 || sleep <= 0 || boost <= 0 || shower <= 0) {
