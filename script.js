@@ -13,9 +13,15 @@ let showerRate = 1.5;
 
 let gameInterval = 0;
 
+let ctx ;
+
+// create canvas med dom.
+
+
+
 function createCanvas() {
     let canvas = document.getElementById('canvas');
-    let ctx = canvas.getContext('2d');
+    ctx= canvas.getContext('2d');
     canvas.width = 200;
     canvas.height = 200;
     canvas.style.border = 'solid';
@@ -24,8 +30,8 @@ function createCanvas() {
 }
 
 function Loop() {
-    let canvas = document.getElementById('canvas');
-    let ctx = canvas.getContext('2d');
+    createCanvas();
+
     let total = eat + sleep + boost + shower;
 
     // Set background color based on total attribute values
